@@ -1,23 +1,21 @@
 help:
-	@echo "usage: make target"
-	@echo "       deps: install required build tools"
-	@echo "       list: list protoc libraries"
-	@echo "       all-go: build all for golang"
-	@echo "       all: build everything"
-	@echo "       clean-all: clean everything"
-	@echo "       lib-[proto set]: clean and build one lib"
-	@echo "       clean-[proto set]: clean one lib"
+	@echo "usage:"
+	@echo "       deps: install required tools"
+	@echo "       list: list libraries"
+	@echo "       all-go: build golang protos"
+	@echo "       all: build all"
+	@echo "       clean-all: clean all"
+	@echo "       lib-[proto set]: clean and build one library"
+	@echo "       clean-[proto set]: clean specific library"
 
-CORTEX_ROOT=$(shell p=$$(pwd); echo $${p%"/protos"})
-
-# Add new protobuf definitions here to add them to *-all targets
-protos=\
-blocks
+ATOMICFS_PROTOS_ROOT=$(shell p=$$(pwd); echo $${p%"/protos"})
 
 proto_std = -Ithird_party/protobuf -Ithird_party/googleapis -I/usr/local/bin/ -I${HOME}/go/bin
-
-# proto_i provides the additional includes to the protoc call
 proto_i =
+
+# protobuf definitions
+protos=\
+blocks
 
 blocks/v1.go: protoset = blocks
 blocks.go: blocks/v1.go
@@ -56,7 +54,6 @@ list-go:
 all.go: $(protos.go)
 all: $(protos.go)
 
-# pattern rules evidently require a non-empty recipe to match
 lib-%: clean-% %.go
 	@echo "done"
 
@@ -64,7 +61,6 @@ clean-%:
 	rm -rf $*/dist
 	rm -f $*/protos/*.protoset
 
-# required to match tunnels with its version prefix
 %.clean:
 	rm -rf $*/dist
 	rm -f $*/protos/*.protoset
