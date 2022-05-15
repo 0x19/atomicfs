@@ -13,9 +13,18 @@ WHITE  := $(shell tput -Txterm setaf 7)
 CYAN   := $(shell tput -Txterm setaf 6)
 RESET  := $(shell tput -Txterm sgr0)
 
+proto_std = -Ithird_party/protobuf -Ithird_party/googleapis -I/usr/local/bin/ -I${HOME}/go/bin
+
 .PHONY: all test build run vendor
 
 all: help
+
+## Protocol Buffers:
+proto-build: ## Build protocol buffers
+	cd protos && make all
+
+proto-clean: ## Clean protocol buffers
+	cd protos && make clean
 
 ## Build:
 build: ## Build your project and put the output binary in build/
