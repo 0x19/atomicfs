@@ -32,7 +32,6 @@ clean-blocks: blocks/v1.clean
 deps.go: /usr/local/bin/protoc
 	cd /tmp && GO111MODULE=on go get github.com/protocolbuffers/protobuf@latest
 	cd /tmp && GO111MODULE=on go get github.com/golang/protobuf/protoc-gen-go@latest
-	cd /tmp && GO111MODULE=on go get github.com/grpc-ecosystem/grpc-gateway@latest
 	cd /tmp && GO111MODULE=on go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
 
 .PHONY: deps deps.go

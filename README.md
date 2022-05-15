@@ -22,6 +22,7 @@ made those projects.
 - [PromptUI]
 - [Viper]
 - [Go Ethereum]
+- [Protoc]
 
 
 
@@ -29,4 +30,5 @@ made those projects.
 [Cobra]: <https://github.com/spf13/cobra>
 [PromptUI]: <https://github.com/manifoldco/promptui>
 [Go Ethereum]: <https://github.com/ethereum/go-ethereum>
-[Viper]: <github.com/spf13/viper>
+[Viper]: <https://github.com/spf13/viper>
+[Protoc]: <https://github.com/protocolbuffers/protobuf>
