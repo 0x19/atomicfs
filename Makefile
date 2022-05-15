@@ -4,6 +4,7 @@ SERVICE_PORT?=3000
 DOCKER_REGISTRY?= #if set it should finished by /
 EXPORT_RESULT?=false # for CI please set EXPORT_RESULT to true
 
+GIT_VERSION := 0.0.0
 GIT_COMMIT := $(shell git rev-list -1 HEAD)
 
 GREEN  := $(shell tput -Txterm setaf 2)
@@ -19,7 +20,7 @@ all: help
 ## Build:
 build: ## Build your project and put the output binary in build/
 	@mkdir -p build
-	@GO111MODULE=on go build -ldflags "-X main.GitCommit=$(GIT_COMMIT)" -mod mod -o build/$(BINARY_NAME) ./entrypoint/main.go
+	@GO111MODULE=on go build -ldflags "-X main.GitCommit=$(GIT_COMMIT) -X main.GitVersion=$(GIT_VERSION)" -mod mod -o build/$(BINARY_NAME) ./entrypoint/main.go
 
 run: build ## Build and run the binary
 	./build/${BINARY_NAME}

@@ -11,7 +11,7 @@ import (
 
 func TestTerminate(t *testing.T) {
 	go func() {
-		// Just sleep for a bit and do nothing...
+		// Just sleep for a bit and do nothing... Mimics running application.
 		time.Sleep(200 * time.Millisecond)
 
 		p, err := os.FindProcess(os.Getpid())
@@ -28,5 +28,6 @@ func TestTerminate(t *testing.T) {
 		}
 	}()
 
+	// If terminate hangs, well that's the failed test for now...
 	terminate.Wait()
 }
