@@ -23,7 +23,7 @@ made those projects.
 - [Viper]
 - [Go Ethereum]
 - [Protoc]
-
+- [FsNotify]
 
 
 [Zap]: <https://pkg.go.dev/go.uber.org/zap>
@@ -32,3 +32,4 @@ made those projects.
 [Go Ethereum]: <https://github.com/ethereum/go-ethereum>
 [Viper]: <https://github.com/spf13/viper>
 [Protoc]: <https://github.com/protocolbuffers/protobuf>
+[FsNotify]: <https://github.com/fsnotify/fsnotify>

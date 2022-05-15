@@ -3,15 +3,16 @@ module github.com/0x19/atomicfs
 go 1.17
 
 require (
+	github.com/fsnotify/fsnotify v1.5.4
 	github.com/mattn/go-colorable v0.1.12
 	github.com/spf13/cobra v1.4.0
 	github.com/spf13/viper v1.11.0
 	go.uber.org/zap v1.21.0
+	gopkg.in/fsnotify.v1 v1.4.7
 )
 
 require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
-	github.com/fsnotify/fsnotify v1.5.4 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/inconshreveable/mousetrap v1.0.0 // indirect
 	github.com/magiconair/properties v1.8.6 // indirect

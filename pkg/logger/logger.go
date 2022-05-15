@@ -32,7 +32,7 @@ func determineLogLevel(verbosityLevel string) zapcore.Level {
 	return zapLevel
 }
 
-func New(level string, environment string, options []zap.Option, labels []zapcore.Field) (*Logger, error) {
+func New(level string, environment string, global bool, options []zap.Option, labels []zapcore.Field) (*Logger, error) {
 	var logger *zap.Logger
 	var err error
 
@@ -54,7 +54,9 @@ func New(level string, environment string, options []zap.Option, labels []zapcor
 	toReturn := &Logger{Logger: logger.With(labels...)}
 
 	// Replace the global zap logger with built logger
-	zap.ReplaceGlobals(logger)
+	if global {
+		zap.ReplaceGlobals(toReturn.Logger)
+	}
 
 	return toReturn, nil
 }
