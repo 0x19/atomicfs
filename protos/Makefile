@@ -15,7 +15,7 @@ proto_i =
 
 # protobuf definitions
 protos=\
-blocks
+database
 
 blocks/v1.go: protoset = blocks
 blocks.go: blocks/v1.go

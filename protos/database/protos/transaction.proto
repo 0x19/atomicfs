@@ -1,0 +1,19 @@
+syntax = "proto3";
+option go_package = "github.com/0x19/atomicfs/protos/database/dist/golang;blocks";
+
+import "google/api/annotations.proto";
+import "google/protobuf/any.proto";
+
+package atomicfs.v1.database;
+
+message Transaction {
+    string from = 1;
+    string to = 2;
+    uint64 gas = 3;
+    uint64 gas_price = 4;
+    uint64 value = 5;
+    uint64 nonce = 6;
+    bytes data = 7;
+    bytes signature = 8;
+    uint64 timestamp = 9;
+}
