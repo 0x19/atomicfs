@@ -1,0 +1,16 @@
+syntax = "proto3";
+option go_package = "github.com/0x19/atomicfs/protos/blockchain/dist/golang;blockchainpb";
+
+package atomicfs.v1.blockchain;
+
+import "account.proto";
+import "block.proto";
+import "transaction.proto";
+
+service AtomicFs {
+    rpc GetBlocks(BlocksRequest) returns (BlocksResponse);
+    rpc SubscribeToBlocks(SubscribeBlocksRequest) returns (stream BlocksResponse);
+    rpc GetTransactions(TransactionsRequest) returns(TransactionsResponse);
+    rpc SubscribeToTransactions(SubscribeTransactionRequest) returns (stream TransactionsResponse);
+    rpc GetAccount(AccountRequest) returns (AccountResponse);
+}

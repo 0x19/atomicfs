@@ -1,0 +1,31 @@
+syntax = "proto3";
+option go_package = "github.com/0x19/atomicfs/protos/blockchain/dist/golang;blockchainpb";
+
+package atomicfs.v1.blockchain;
+
+import "transaction.proto";
+
+message BlockHeader {
+    string parent = 1;
+    uint64 number = 2;
+    uint64 nonce = 3;
+    string miner = 4;
+    uint64 timestamp = 5;
+}
+
+message Block {
+    BlockHeader header = 1;
+    repeated Transaction transactions = 2; 
+}
+
+message BlocksRequest {
+
+}
+
+message SubscribeBlocksRequest {
+
+}
+
+message BlocksResponse {
+    repeated Block blocks = 1;
+};

@@ -15,15 +15,7 @@ proto_i =
 
 # protobuf definitions
 protos=\
-database
-
-blocks/v1.go: protoset = blocks
-blocks.go: blocks/v1.go
-	@true
-blocks.clean: blocks/v1.clean
-	@true
-clean-blocks: blocks/v1.clean
-	@true
+blockchain
 
 
 # ======================================================================

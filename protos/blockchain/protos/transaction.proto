@@ -1,10 +1,7 @@
 syntax = "proto3";
-option go_package = "github.com/0x19/atomicfs/protos/database/dist/golang;blocks";
+option go_package = "github.com/0x19/atomicfs/protos/blockchain/dist/golang;blockchainpb";
 
-import "google/api/annotations.proto";
-import "google/protobuf/any.proto";
-
-package atomicfs.v1.database;
+package atomicfs.v1.blockchain;
 
 message Transaction {
     string from = 1;
@@ -17,3 +14,15 @@ message Transaction {
     bytes signature = 8;
     uint64 timestamp = 9;
 }
+
+message TransactionsRequest {
+
+}
+
+message SubscribeTransactionRequest {
+
+}
+
+message TransactionsResponse {
+
+};

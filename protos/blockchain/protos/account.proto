@@ -1,0 +1,17 @@
+syntax = "proto3";
+option go_package = "github.com/0x19/atomicfs/protos/blockchain/dist/golang;blockchainpb";
+
+package atomicfs.v1.blockchain;
+
+message Account {
+    string address = 1;
+    uint64 balance = 2;
+}
+
+message AccountRequest {
+    string address = 1;
+}
+
+message AccountResponse {
+    Account account = 1;
+}
