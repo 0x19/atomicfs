@@ -10,6 +10,12 @@ This is a proof of concept, study of my own.
 
 Eventually, once built to any sane level will make notice here and change the project scope of use.
 
+
+## Table Of Content
+
+- [Cli]
+  - [Wallet]
+
 ## Project Structure
 
 In order not to reinvent the wheel at this moment, going to use the https://github.com/golang-standards/project-layout as a base pointer towards how the architecture is going to be built with few caviats that I'm going to explain here in the future.

@@ -17,6 +17,7 @@ func PromptForSecret(question string) (string, error) {
 	prompt := promptui.Prompt{
 		Label:    question,
 		Validate: validateSecret,
+		Mask:     '*',
 	}
 
 	result, err := prompt.Run()

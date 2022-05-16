@@ -8,6 +8,7 @@ import (
 	"github.com/0x19/atomicfs/internal/core/ctx"
 	"github.com/0x19/atomicfs/pkg/logger"
 	"github.com/fsnotify/fsnotify"
+	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
@@ -18,6 +19,8 @@ var (
 	dataPath  string
 	globalCtx *ctx.Ctx
 )
+
+const flagKeystoreFile = "keystore"
 
 // ExecuteRootContext - Executes the root command with the global context
 func ExecuteRootContext(c *ctx.Ctx) error {
@@ -70,4 +73,9 @@ func SetupDefaults(labels []zapcore.Field) error {
 	}
 
 	return nil
+}
+
+func addKeystoreFlag(cmd *cobra.Command) {
+	cmd.Flags().String(flagKeystoreFile, "", "Absolute path to the encrypted keystore file")
+	cmd.MarkFlagRequired(flagKeystoreFile)
 }
