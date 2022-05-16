@@ -5,7 +5,8 @@
 
 An example keystore file 
 
-```afs wallet dump --keystore ~/atomicfs/keystore/UTC--2022-05-16T11-51-01.022642972Z--e43049f09ca93406bf1bcc6646a1b69eae77df05
+```
+afs wallet dump --keystore ~/atomicfs/keystore/UTC--2022-05-16T11-51-01.022642972Z--e43049f09ca93406bf1bcc6646a1b69eae77df05
 ```
 
 ```
