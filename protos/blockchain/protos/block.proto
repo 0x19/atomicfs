@@ -10,7 +10,7 @@ message BlockHeader {
     uint64 number = 2;
     uint64 nonce = 3;
     string miner = 4;
-    uint64 timestamp = 5;
+    int64 timestamp = 5;
 }
 
 message Block {

@@ -17,6 +17,8 @@ func init() {
 	addKeystoreFlag(walletPrintPrivateKeyCmd)
 	walletCmd.AddCommand(walletPrintPrivateKeyCmd)
 
+	walletCmd.AddCommand(walletBalanceCmd)
+
 	rootCmd.AddCommand(walletCmd)
 }
 
@@ -71,4 +73,10 @@ var walletPrintPrivateKeyCmd = &cobra.Command{
 		spew.Dump(key)
 		return nil
 	},
+}
+
+var walletBalanceCmd = &cobra.Command{
+	Use:          "balance",
+	Short:        "Get account balance",
+	SilenceUsage: true,
 }
