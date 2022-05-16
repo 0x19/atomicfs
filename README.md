@@ -16,7 +16,7 @@ In order not to reinvent the wheel at this moment, going to use the https://gith
 
 ### Entrypoint
 
-Path where main go file is located. I trully dislike having main.go in cmd/ path as it just makes whole cmd folder look bad. Therefore, I've choosen to name entrypoint path where main will reside and will be used to spawn and build the entire project. Borrowed idea from Docker entrypoint.
+Path where main go file is located. I trully dislike having main.go in cmd/ path as it just makes whole cmd folder look bad. Therefore, I've choosen to name entrypoint path where main will reside and will be used to spawn and build the entire project. Borrowed naming idea from Docker entrypoint.
 
 ### Protos
 
