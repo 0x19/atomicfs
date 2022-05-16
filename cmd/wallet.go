@@ -23,7 +23,7 @@ var walletNewAccountCmd = &cobra.Command{
 	Short:        "Creates a new account with a new set of a elliptic-curve private and public keys.",
 	SilenceUsage: true,
 	RunE: func(cmd *cobra.Command, args []string) error {
-		secret, err := prompt.PromptForSecret("Please enter a password used for wallet encryption")
+		secret, err := prompt.PromptForSecret("Please enter wallet password")
 		if err != nil {
 			return err
 		}
