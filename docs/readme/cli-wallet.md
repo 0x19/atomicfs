@@ -1,6 +1,17 @@
 # AtomicFS Wallet Command Line Interface
 
 
+## Create new wallet
+
+```
+afs wallet new
+
+2022-05-16T14:15:32.857+0200    INFO    Successfully loaded configuration file. {"root": "atomicfs", "path": "/home/cortex/atomicfs/config.yaml"}
+Please enter wallet password: ****************
+New account created: 0x210a23c2e142c4dc39b628aca6E4F99F6F4c37B1
+Saved in: /home/cortex/atomicfs/keystore
+```
+
 ## Dump the contents of the keystore
 
 An example keystore file 
