@@ -8,7 +8,6 @@ import (
 	"github.com/0x19/atomicfs/internal/core/ctx"
 	"github.com/0x19/atomicfs/pkg/logger"
 	"github.com/fsnotify/fsnotify"
-	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
@@ -16,6 +15,7 @@ import (
 
 var (
 	cfgFile   string
+	dataPath  string
 	globalCtx *ctx.Ctx
 )
 
@@ -45,11 +45,7 @@ func SetupDefaults(labels []zapcore.Field) error {
 		// Use config file from the flag.
 		viper.SetConfigFile(cfgFile)
 	} else {
-		// Find home directory.
-		home, err := os.UserHomeDir()
-		cobra.CheckErr(err)
-
-		viper.SetConfigFile(path.Join(home, "atomicfs", "config.yaml"))
+		viper.SetConfigFile(path.Join(dataPath, "config.yaml"))
 	}
 
 	if err := viper.ReadInConfig(); err != nil {
@@ -65,6 +61,13 @@ func SetupDefaults(labels []zapcore.Field) error {
 	viper.WatchConfig()
 
 	zap.L().Info("Successfully loaded configuration file.", zap.String("path", viper.ConfigFileUsed()))
+
+	if viper.GetString("data_path") == "" {
+		viper.SetDefault("data_path", func() string {
+			home, _ := os.UserHomeDir()
+			return path.Join(home, "atomicfs")
+		}())
+	}
 
 	return nil
 }

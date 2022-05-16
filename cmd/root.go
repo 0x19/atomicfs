@@ -5,6 +5,7 @@ Copyright © 2022 NAME HERE <EMAIL ADDRESS>
 package cmd
 
 import (
+	"github.com/0x19/atomicfs/pkg/fs"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 	"go.uber.org/zap/zapcore"
@@ -28,7 +29,13 @@ func init() {
 		})
 	})
 
-	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "Config file (default is $HOME/atomicfs/config.yaml)")
+	defaultAtomicDataPath, err := fs.GetDirFromHome("atomicfs")
+	cobra.CheckErr(err)
+	defaultAtomicConfigFile, err := fs.GetDirFromHome("atomicfs", "config.yaml")
+	cobra.CheckErr(err)
+
+	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", defaultAtomicConfigFile, "Config file path")
+	rootCmd.PersistentFlags().StringVar(&dataPath, "data-path", defaultAtomicDataPath, "Data path")
 	rootCmd.PersistentFlags().String("log-level", "", "The minimum level at which to emit log data.")
 	rootCmd.PersistentFlags().Bool("pprof-enabled", true, "Boolean value indicating whenever we want to enable pprof server")
 	rootCmd.PersistentFlags().String("pprof-addr", ":9000", "Listener address for the pprof server. Valid address example: {ip}:{port}")

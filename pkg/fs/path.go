@@ -3,6 +3,7 @@ package fs
 import (
 	"errors"
 	"os"
+	"path"
 )
 
 // CreatePathIfNotExist - Creates the path if one is not present on the machine
@@ -15,4 +16,13 @@ func CreatePathIfNotExist(path string) error {
 	}
 
 	return nil
+}
+
+func GetDirFromHome(p ...string) (string, error) {
+	home, err := os.UserHomeDir()
+	if err != nil {
+		return "", err
+	}
+	toUse := []string{home}
+	return path.Join(append(toUse, p...)...), nil
 }

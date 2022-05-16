@@ -33,6 +33,6 @@ func (c *Ctx) Stop() {
 
 // New - Creates new context from a parent context
 func New(c context.Context) *Ctx {
-	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt)
+	ctx, stop := signal.NotifyContext(c, os.Interrupt)
 	return &Ctx{ctx, stop}
 }
